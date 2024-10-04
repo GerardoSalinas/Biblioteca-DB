@@ -275,6 +275,7 @@ Atributos:
 
 <!-- ![[Pasted image 20241004033028.png|center|300]] -->
 ![300](./images/Pasted%20image%2020241004033028.png)
+
 Relaciones:
 - 1 : m  con [[#actions_history]]
 <div style="page-break-after: always; visibility: hidden">
