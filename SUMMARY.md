@@ -1,3 +1,5 @@
 # Table of contents
 
-* [Page](README.md)
+* [Documentación Biblioteca DB](README.md)
+* [Observaciones](observaciones.md)
+* [Diagrama Relacional](diagrama-relacional.md)
