@@ -18,5 +18,5 @@ layout:
 
 # Diagrama Relacional
 
-<figure><img src=".gitbook/assets/db-diagram.svg" alt=""><figcaption><p>diagrama relacional de la base</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/db-diagram.svg" alt=""><figcaption><p>diagrama relacional de la base</p></figcaption></figure>
 
