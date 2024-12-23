@@ -13,17 +13,14 @@ USE `biblioteca` ;
 -- Table `biblioteca`.`libraries`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `biblioteca`.`libraries` (
-  `library_id` VARCHAR(3) NOT NULL,
+  `library_id` VARCHAR(5) NOT NULL,
   `career` VARCHAR(45) NOT NULL,
   `name` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(60) NOT NULL,
-  `email` VARCHAR(70) NOT NULL,
   `enabled` TINYINT NOT NULL,
   `theme` VARCHAR(45) NULL,
   `logo` VARCHAR(45) NULL,
   PRIMARY KEY (`library_id`),
   UNIQUE INDEX `carrera_UNIQUE` (`career` ASC) VISIBLE);
-
 
 -- -----------------------------------------------------
 -- Table `biblioteca`.`people`
@@ -39,7 +36,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`people` (
   `enabled` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`email`));
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`languages`
 -- -----------------------------------------------------
@@ -47,7 +43,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`languages` (
   `language_id` INT NOT NULL AUTO_INCREMENT,
   `language` VARCHAR(25) NOT NULL,
   PRIMARY KEY (`language_id`));
-
 
 -- -----------------------------------------------------
 -- Table `biblioteca`.`books`
@@ -60,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`books` (
   `edition` VARCHAR(10) NULL,
   `publication_date` DATE NULL,
   `publisher` VARCHAR(45) NULL,
-  `description` VARCHAR(700) NULL,
+  `description` VARCHAR(200) NULL,
   `amount_pages` INT NULL,
   PRIMARY KEY (`book_id`),
   INDEX `fk_tbl_lib_tbl_idi_idx` (`language_id` ASC) VISIBLE,
@@ -70,7 +65,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`books` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`authors`
 -- -----------------------------------------------------
@@ -78,7 +72,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`authors` (
   `author_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(90) NOT NULL,
   PRIMARY KEY (`author_id`));
-
 
 -- -----------------------------------------------------
 -- Table `biblioteca`.`authors_per_book`
@@ -100,15 +93,14 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`authors_per_book` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`stock`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `biblioteca`.`stock` (
   `stock_id` INT NOT NULL AUTO_INCREMENT,
   `book_id` INT NOT NULL,
-  `library_id` VARCHAR(3) NOT NULL,
-  `enabled` TINYINT NOT NULL,
+  `library_id` VARCHAR(5) NOT NULL,
+  `enabled` TINYINT NOT NULL DEFAULT 1,
   `total_amount` INT NOT NULL,
   `location` VARCHAR(100) NULL,
   `units_available` INT NULL,
@@ -127,7 +119,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`stock` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`categories`
 -- -----------------------------------------------------
@@ -136,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`categories` (
   `name` VARCHAR(45) NOT NULL,
   `parent_category_id` INT NULL,
   `icon` VARCHAR(45) NULL,
-  `enabled` TINYINT NULL,
+  `enabled` TINYINT(1) NULL,
   PRIMARY KEY (`category_id`),
   INDEX `fk_tbl_cat_idx` (`parent_category_id` ASC) VISIBLE,
   CONSTRAINT `fk_tbl_cat`
@@ -144,7 +135,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`categories` (
     REFERENCES `biblioteca`.`categories` (`category_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
 
 -- -----------------------------------------------------
 -- Table `biblioteca`.`categories_per_book`
@@ -166,7 +156,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`categories_per_book` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`states`
 -- -----------------------------------------------------
@@ -175,13 +164,12 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`states` (
   `state` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`state_id`));
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`administrators`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `biblioteca`.`administrators` (
   `administrator_id` VARCHAR(70) NOT NULL,
-  `library_id` VARCHAR(3) NOT NULL,
+  `library_id` VARCHAR(5) NOT NULL,
   INDEX `fk_tbl_adm_tbl_per_idx` (`administrator_id` ASC) VISIBLE,
   PRIMARY KEY (`administrator_id`),
   INDEX `fk_tbl_adm_tbl_bi_idx` (`library_id` ASC) VISIBLE,
@@ -196,7 +184,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`administrators` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`users`
 -- -----------------------------------------------------
@@ -210,7 +197,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`users` (
     REFERENCES `biblioteca`.`people` (`email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
 
 -- -----------------------------------------------------
 -- Table `biblioteca`.`tbl_reserva`
@@ -259,7 +245,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`tbl_reserva` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`petitions`
 -- -----------------------------------------------------
@@ -283,7 +268,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`petitions` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`notifications`
 -- -----------------------------------------------------
@@ -292,8 +276,7 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`notifications` (
   `title` VARCHAR(45) NOT NULL,
   `body` VARCHAR(200) NOT NULL,
   `date` DATETIME NOT NULL,
-  `viewed` TINYINT NULL DEFAULT 0,
-  `library_id` VARCHAR(3) NULL,
+  `library_id` VARCHAR(5) NULL,
   `user_id` VARCHAR(70) NULL,
   `petition_id` INT NULL,
   `reservation_id` INT NULL,
@@ -323,12 +306,11 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`notifications` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-
 -- -----------------------------------------------------
 -- Table `biblioteca`.`libraries_per_user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `biblioteca`.`libraries_per_user` (
-  `library_id` VARCHAR(3) NOT NULL,
+  `library_id` VARCHAR(5) NOT NULL,
   `user_id` VARCHAR(70) NOT NULL,
   INDEX `fk_tbl_bi_est_tbl_bi_idx` (`library_id` ASC) VISIBLE,
   PRIMARY KEY (`library_id`, `user_id`),

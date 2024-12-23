@@ -11,7 +11,7 @@ coverY: 0
 
 Cada carrera podrá tener una biblioteca. Esta tabla tiene los parámetros generales de la biblioteca, como el nombre y el tema.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<div align="center"><figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
 
 ### 2. People
 
@@ -19,33 +19,33 @@ En el sistema hay dos tipos de usuarios: administradores y usuarios normales (es
 
 Se usurá el correo institucional como llave primaria (id) de los usuarios.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 2.1 Administrators
 
 Su llave primaria es la llave foránea que proviene de la tabla "people". &#x20;
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 2.2 Users
 
 Su llave primaria es la llave foránea que proviene de la tabla "people". A diferencia de los administradores (que solo pertenecen a una biblioteca) los usuarios pueden pertenecer a varias bibliotecas, por lo tanto la relación entre los usuarios y las bibliotecas es de muchos a muchos.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### 3. Books
 
 A continuación se muestran todas las relaciones que involucran la creación de un libro.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. Stock
 
 Esta tabla relaciona los libros con las bibliotecas.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. Petitions
 
@@ -82,4 +82,7 @@ Las notificaciones se van a utilizar cuando se hacen, aprueban o desaprueban pet
 * Si es una notificación informándole al usuario si se aprobó o no su petición estarán llenos los campos "user\_id" y "petition\_id"
 * si es una notificación para informar al usuario sobre seguimiento de alguna reserva estarán llenos los campos "reservation\_id" y "user\_id"
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+{% file src="../../.gitbook/assets/ddl.sql" %}
+
