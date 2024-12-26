@@ -82,5 +82,10 @@ Las notificaciones se van a utilizar cuando se hacen, aprueban o desaprueban pet
 
 <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-{% file src="../../.gitbook/assets/ddl (2).sql" %}
+### Script para crear la base de datos
 
+{% file src="../../.gitbook/assets/ddl (3).sql" %}
+
+### Script para llenar la base de datos
+
+{% file src="../../.gitbook/assets/dml.sql" %}
