@@ -53,15 +53,14 @@ Antes de hacer un reservación los usuarios pueden hacer una petición donde el 
 
 * approved: va a ser 0 cuando no se apruebe la petición y 1 en caso contrario
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. Reservation
 
 Después de que una petición fue aprobada, en el momento que el usuario va a traer el libro se genera una reserva con los siguientes campos:
 
 * state\_id: determina el estado de la reserva (en curso, finalizada, atrasada ...)
-* user\_id: correo del usuario
-* book\_id: el id del stock al que hace referencia el libro prestado
+* petition\_id: de aquí se saca el user\_id y el book\_id (stock)
 * loan\_admin\_id: correo del administrador que prestó el libro
 * reception\_admin\_id: correo del administrador que recibió el libro
 * loaned\_on: fecha de inicio del prestamo
@@ -70,7 +69,7 @@ Después de que una petición fue aprobada, en el momento que el usuario va a tr
 * initial\_notes: observaciones iniciales del libro
 * final\_notes: observaciones del libro al momento de la devolución
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 ### 7. Notification
 
