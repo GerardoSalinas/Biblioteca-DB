@@ -5,7 +5,7 @@ coverY: 0
 
 # Documentación tablas BD
 
-<figure><img src="../../.gitbook/assets/modelo.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/modelo (4).png" alt=""><figcaption></figcaption></figure>
 
 ### 1. Library
 
@@ -84,7 +84,7 @@ Las notificaciones se van a utilizar cuando se hacen, aprueban o desaprueban pet
 
 ### Script para crear la base de datos
 
-{% file src="../../.gitbook/assets/ddl (3).sql" %}
+{% file src="../../.gitbook/assets/ddl (4).sql" %}
 
 ### Script para llenar la base de datos
 
